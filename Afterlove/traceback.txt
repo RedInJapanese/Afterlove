@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 7, in script
-    define m = character(_("Me"), color="#ffa500")
-  File "game/script.rpy", line 7, in <module>
-    define m = character(_("Me"), color="#ffa500")
-NameError: name 'character' is not defined
+  File "game/script.rpy", line 40, in script
+    if who == False and where == False how == False:
+SyntaxError: invalid syntax (game/script.rpy, line 40)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 7, in script
-    define m = character(_("Me"), color="#ffa500")
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 2508, in execute
-    self.set()
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 2522, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 7, in <module>
-    define m = character(_("Me"), color="#ffa500")
-NameError: name 'character' is not defined
+  File "game/script.rpy", line 40, in script
+    if who == False and where == False how == False:
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 2133, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1151, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1088, in py_compile
+    raise e
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1034, in py_compile
+    raise orig_e
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1027, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/script.rpy, line 40)
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23051307
 Afterlove 1.0
-Mon May 22 16:01:24 2023
+Mon May 22 16:44:03 2023

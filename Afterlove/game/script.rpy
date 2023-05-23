@@ -6,7 +6,9 @@
 define anubis = Character("Anubis")
 define m = Character(_("Me"), color="#ffa500")
 # The game starts here.
-
+default who = False
+default where = False
+default how = False
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -32,46 +34,68 @@ label start:
     # These display lines of dialogue.
 
     anubis "Welcome to the duat, lost soul. Here you will face judgement for the events that transpired in your life."
+    jump opt
 
-    menu: 
-        "You are incredibly confused, you don't know how you got here, where this place is, or who he is..."
+label opt:
+        menu: 
+            "You are incredibly confused, you don't know how you got here, where this place is, or who he is..."
+            
+            "Ask who he is":
 
-        "Ask who he is":
+                jump who
 
-            jump who
+            "Ask where you are":
 
-        "Ask where you are":
+                jump where
 
-            jump where
+            "Ask how you got here":
 
-        "Ask how you got here":
-
-            jump how
+                jump how
 
 label who:
 
     show anubis placeholder
     with dissolve
 
+    $ who = True
+
     anubis "I am anubis, egyptian god of funerary rights, protector of graves, and guide to the underworld"
 
     anubis "I am here to judge you."
 
-    return 
+    jump main
+    
+    return
 
 label where: 
+
+    $ where = True
 
     show anubis placeholder
     with dissolve
 
     anubis "where did i ask"
 
+    jump main
+
     return 
 
 label how:
+
+    $ how = True
+
     show anubis placeholder
     with dissolve
 
     anubis "how did i ask"
-    # This ends the game.
+
+    jump main
+
     return
+
+label main: 
+    if who and where and how:
+        show anubis placeholder
+        anubis "peepeepoopoo"
+    else:
+        jump opt
