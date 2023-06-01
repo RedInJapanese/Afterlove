@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 78: Indentation mismatch.
+File "game/script.rpy", line 409: expected statement.
+    "As you both walk towards the temple you notice the grandeur of it. It’s entry way flanked by massive titans and it’s walls engraved with glyphs that proudly stand boldly outward showing the rest of the duat of the excellence and significance of this place."\
+                                                                                                                                                                                                                                                                      ^
 
 Ren'Py Version: Ren'Py 8.1.0.23051307
-Wed May 31 16:35:17 2023
+Wed May 31 18:30:04 2023

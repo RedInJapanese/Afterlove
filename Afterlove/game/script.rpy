@@ -10,6 +10,7 @@ default who = False
 default where = False
 default how = False
 default jackal = False
+default score = 0
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -170,6 +171,8 @@ menu:
 
 label muscle:
 
+    $ score -= 1
+
     "He stops rowing for a second and glares at you"
 
     "…"
@@ -180,13 +183,15 @@ label muscle:
     
 label afterlife: 
 
+    $ score += 1
+
     anubis "It’s quiet, and quiet. Many who enter here don’t stay here long. Means I don’t have to deal with nuisances for all too long"
 
     m "Doesn’t it get lonely then?"
 
     anubis "Not exactly, some spirits stay here. They are spirits who have sinned but have curried favor with the gods and have been permitted to work off their sins"
 
-    m "	Can you permit souls to stay here?"
+    m "Can you permit souls to stay here?"
 
     anubis "I see what you’re doing mortal. The answer is yes, I can. But I have never done so, you are nothing more than a nuisance."
 
@@ -194,8 +199,7 @@ label afterlife:
 
 label de:
 
-
-    m "-I mean can you blame me? Who wouldn’t want to spend time around a hunk like yourself?"
+    m "I mean can you blame me? Who wouldn’t want to spend time around a hunk like yourself?"
 
 "He stops rowing to slowly raise his hand and drag it down his face"
 
@@ -223,3 +227,318 @@ show anubis_un
 
 anubis "We have arrived, get out"
 
+scene pyramid
+with dissolve
+
+show anubis_un
+
+"You enter the town, there aren’t many buildings and all the buildings short of the megastructure at the town's center are fairly quaint. The town also seems to be sparsely populated."
+
+anubis "Alright, enough sightseeing, let’s get a move on"
+
+menu: 
+
+    "What do you do?"
+
+    "Alright, fine":
+
+        jump body3
+
+    "Not yet!":
+
+        jump dlc
+
+label dlc: 
+
+    anubis "What do you mean, not yet?"
+
+    m "Umm … there was something that caught my eye!"
+
+    hide anubis_un
+    show anubis_an
+
+    anubis "And what pray tell was it?"
+
+    m "That vendor food vendor over there looks really good!"
+
+    anubis "So, you just wanted to eat a food cart?"
+
+    m "I mean it’s not everyday I get to eat in the world between worlds"
+
+    hide anubis_an
+    show anubis_un
+
+    anubis "Fine, I’ll indulge your whims"
+
+    "You both go up to the stand and as you approach it a spirit bursts forth from behind the stand with a platter of sweet breads governed in a shimmer brown glaze."
+
+    "You go and take one of these treats and as you do Anubis just stares blankly stares"
+
+    m "Hey, you want one?"
+
+    anubis "No, as a deity I have no need for such things and thus don’t care for them"
+
+    menu: 
+
+        "What do you do?"
+
+        "Ah come on, one of these isn’t going to ruin your sick gains":
+
+            jump bad_choice_food
+
+        "Such a shame, these are real good, you sure you don’t want to try one?":
+
+            jump good_choice_food
+
+    label bad_choice_food:
+
+        $ score -= 1
+
+        hide anubis_un
+        show anubis_an
+
+        anubis "It was a mistake to allow you this reprieve."
+
+        "As you finish your pastry he grabs you by the arm and brings you into the temple"
+
+        jump body3
+
+    label good_choice_food:
+
+        $ score += 1
+
+        hide anubis_un
+        show anubis_an
+
+        anubis "I suppose it’s been awhile since I’ve had one, I suppose I’ll humor you"
+
+        "As his maw opens and the bread disappears a smile cracks across his face"
+
+        hide anubis_an
+        show anubis_default
+
+        m "See, they’re good! You should allow yourself to enjoy what you can when you can!"
+
+        hide anubis_default
+        show anubis_un
+
+        anubis "Hmm, I suppose minor diversions such as this wouldn’t cause too much of an issue. But enough diversions, we should get going."
+
+        m "umm, what about that building over there!"
+
+        hide anubis_un
+        show anubis_an
+
+        anubis "That one? Do you even know what that is?"
+
+        menu: 
+
+            "Yes it’s obviously an arcade":
+
+                anubis "No, it’s not. Also what even is that? Wait, no, no more stalling, we’re going to the temple."
+
+                jump body3
+            
+            "No I don’t, but I want to know":
+
+                $ score += 1
+
+                hide anubis_an
+                show anubis_un
+
+                anubis "I appreciate the honesty, I’ll indulge you"
+
+                "As you both enter the building you see tomes line the walls, the floor is an intricate tiling and in the center is a kind of kiosk with a soul manning it"
+
+                "As you both approach the kiosk Anubis quickly rushes by you for a moment and hunches over. He mutters something to the kiosk attendant and as quickly as he mutters the attendant produces and gives Anubis a book and a cup."
+
+                m "What was that about?"
+
+                anubis "It’s nothing"
+
+                m "Well it’s obviously a book, what’s it about?"
+
+                anubis "None of your concern."
+
+                "You figure it’s a bad idea to keep pushing him about it and go up to the kiosk yourself. The kiosk has a catalog of books and warm beverages to choose from."
+
+                "..."
+
+                "The beverages are your standard fair of tea and coffee but the variety of books is oddly limited… it’s all young adult…"
+
+                menu:
+
+                    "Which book do you pick?"
+
+                    "Action Adventure":
+
+                        $ score -= 1
+
+                        hide anubis_un
+                        show anubis_an
+
+                        anubis "Really? You picked that of all things?"
+
+                        hide anubis_an
+                        show anubis_un
+
+                        anubis "I suppose taste is something that can only be refined with age, and frankly you don’t have such luxury"
+
+                        "After being chastised for your choice you both sit down in the lounge and enjoy your literature and drinks."
+
+                        "Anubis reaches for his tea and sips the last of. Afterwards he closes his book and gets up."
+
+                        anubis "Alright, that break was long enough, let’s get you to that temple"
+
+                        jump body3
+
+                    "Romance Catalog":
+
+                        $ score += 1
+
+                        hide anubis_un
+                        show anubis_default
+
+                        anubis "I see someone here has impeccable taste"
+
+                        m "What makes you say that?"
+
+                        anubis "Any child can enjoy the whims of adventure and spectacle, but it takes a person of true character to appreciate something as refined as the slow passionate burn that romance demands!"
+
+                        hide anubis_default
+                        show anubis_un
+
+                        anubis "Ahem, sorry, I mean it’s nothing of note just a matter of preference really."
+
+                        m "Sure…"
+
+                        "After that exchange you both recline and enjoy yourselves in the lounge for awhile..."
+
+                        anubis "Alright, that break was long enough, let’s get you to that temple."
+
+                        jump body3
+
+label body3:
+
+        "As you both walk towards the temple you notice the grandeur of it. It’s entry way flanked by massive titans and it’s walls engraved with glyphs that proudly stand boldly outward showing the rest of the duat of the excellence and significance of this place."
+        
+        "As you enter the magnificence continues with glyphs covering the walls and scenes from myth being depicted as well in stunning detail and vibrant color."
+
+        "As you delve deeper the rooms suddenly are lit by lanterns of brass and holding flames as blue as the very lapis that embolden the scenes the lanterns illuminate."
+
+        "After a while you both enter a room that has a vase and a scale. The scale has a feather resting on one end and an axe leaning against its center beam."
+
+        hide anubis_an
+        hide anubis_default
+        show anubis_un
+        
+        anubis "Alright mortal, are you ready?"
+
+        menu:
+
+            "Yes":
+
+                $ score += 1
+
+                hide anubis_un
+                show anubis_default
+
+                anubis "Excellent"
+
+                "He picks up the case and produces a heart out of it and sets it on the scale"
+
+                jump ending
+
+            "I don’t have a choice really":
+
+                anubis "Correct, you don’t"
+
+                "He picks up the case and produces a heart out of it and sets it on the scale"
+
+                jump ending
+            
+            "I want to ask about something":
+
+                hide anubis_un
+                show anubis_an
+
+                anubis "Make it quick."
+
+                menu:
+
+                    "Is there another way to go about this?":
+
+                        $ score -= 1
+
+                        anubis "You’re still trying to weasel your way out? No there isn’t"
+
+                        "He picks up the case and produces a heart out of it and sets it on the scale"
+
+                        jump ending
+
+                    "I'm grateful you dealt with my antics":
+
+                        $ score += 1
+
+                        hide anubis_an
+                        show anubis_default
+
+                        anubis "Heh, yeah. You better be."
+
+                        "He picks up the case and produces a heart out of it and sets it on the scale"
+
+                        jump ending
+
+
+label ending: 
+
+        if score > 0:
+
+            "Anubis puts your heart on the scale with the feather on the opposite end."
+
+            "At first the scale waivers a little bit off balance, your heart continuously rising and sinking."
+
+            "As scale continuous to be in a state of flux Anubis reaches his axe"
+
+            "When his axe is firmly in his grasp he presses his axe gently against the scale and the scale stops wavering"
+
+            "…"
+
+            "You heart and the feather are level"
+
+            hide anubis_un
+            show anubis_default
+
+            anubis "I feel generous today, which is no common sight, so be grateful."
+
+            m "Was that really it?"
+
+            hide anubis_default
+            show anubis_un
+
+            anubis "Well, I’ll grant that you were at least mildly interesting. I wouldn’t mind going again to a food stall sometime…"
+
+            "The two of you go on a second date together and live happily ever after…"
+
+        else:
+
+            "Anubis puts your heart on the scale with the feather on the opposite end"
+
+            "As your heart touches the scale it sinks like a rock."
+
+            "And as quickly as your heart sinks you barely catch some movement at the corner of your eyes"
+
+            "Just as you turn to see what that movement was you see this hulking figure with an axe raised over it’s head and before you can even muster anything to say you hear something."
+
+            hide anubis_un
+            hide anubis_an
+            show anubis_default
+
+            anubis "Farewell, sinner"
+
+            hide anubis_default
+            hide anubis_an
+            hide anubis_un
+            with fade
+
+            "Game Over"
