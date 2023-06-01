@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 40, in script
-    if who == False and where == False how == False:
-SyntaxError: invalid syntax (game/script.rpy, line 40)
+  File "game/script.rpy", line 148, in script
+    me "Alright alright, I’ll get up"
+Exception: Sayer 'me' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 40, in script
-    if who == False and where == False how == False:
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 2133, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1151, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1088, in py_compile
-    raise e
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1034, in py_compile
-    raise orig_e
-  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\python.py", line 1027, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 40)
+  File "game/script.rpy", line 148, in script
+    me "Alright alright, I’ll get up"
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 890, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Aka\Desktop\renpy-8.1.0-sdk\renpy\ast.py", line 783, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'me' is not defined.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23051307
 Afterlove 1.0
-Mon May 22 16:44:03 2023
+Wed May 31 17:29:10 2023

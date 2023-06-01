@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 42: expected menuitem
-    if who:
-    ^
+File "game/script.rpy", line 78: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.1.0.23051307
-Mon May 22 16:47:32 2023
+Wed May 31 16:35:17 2023
