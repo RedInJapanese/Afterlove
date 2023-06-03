@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -157,9 +157,13 @@ label main:
 
 "You get in the boat first and he gets in after you and begins to row"
 
-"…(time passes)"
+"As Anubis rows you both across the river you notice that the river is calm and that the only disturbance being the boat"
+
+"Which each stroke Anubis digs up some water and it the ocassional splash does get him making him glisten"
 
 menu:
+
+    "Do you want to comment on it?"
 
     "Hey, nice muscles, what’s your bench?":
 
@@ -176,8 +180,13 @@ label muscle:
     "He stops rowing for a second and glares at you"
 
     "…"
+    
 
     "He resumes rowing as if nothing happened"
+
+
+    menu:
+
 
     jump de
     
@@ -195,11 +204,79 @@ label afterlife:
 
     anubis "I see what you’re doing mortal. The answer is yes, I can. But I have never done so, you are nothing more than a nuisance."
 
-    jump de
+    menu:
+        
+        "I mean can you blame me? Who wouldn’t want to spend time around a hunk like yourself?":
 
-label de:
+            jump badFlirt
 
-    m "I mean can you blame me? Who wouldn’t want to spend time around a hunk like yourself?"
+        "Heh, you saw right through me.": 
+            jump earnesty
+
+    #"He stops rowing to slowly raise his hand and drag it down his face"
+
+    label badFlirt:
+
+        $ score -= 1
+
+        hide anubis_un
+
+        show anubis_an
+
+        anubis "I didn’t think it was possible, but I feel ill now. I a deity feel weak and sickened at your poor attempt at flirting. Please never do that again."
+
+        menu:
+
+            "Come on, it wasn't that bad!":
+
+                jump badFlirt2
+
+            "Okay, I'll keep it to a minimum...":
+
+                jump salvaged
+
+        #jump de
+
+        label badFlirt2:
+
+            $ score -= 1
+
+            anubis "No, it was awful, if this was how you were like in life, I look forward to parting your head from your shoulders"
+
+            "after his comment he continues rowwing"
+
+            jump de
+
+        label salvaged:
+
+            hide anubis_an
+
+            show anubis_un
+
+            anubis "Hmm, good, I guess mortals can learn"
+
+            jump de
+
+        
+    label earnesty:
+
+        $ score += 1
+
+        m "Heh, you saw right through me."
+
+        hide anubis_an
+
+        show anubis_default
+
+        anubis "Of course I did, you mortals are such simple creatures."
+
+        hide anubis_default
+
+        jump de
+
+#label de:
+
+    #m "I mean can you blame me? Who wouldn’t want to spend time around a hunk like yourself?"
 
 "He stops rowing to slowly raise his hand and drag it down his face"
 
@@ -217,13 +294,16 @@ show anubis_default
 
 anubis "Of course I did, you mortals are such simple creatures."
 
-"…(time passes)"
-
-"A shore line comes into view and with it a city"
-
 hide anubis_default
 
-show anubis_un
+label de:
+    "As you both go further down this quiet river you see something on the horizon"
+    
+    "A shore line comes into view and with it a city"
+
+    
+
+    show anubis_un
 
 anubis "We have arrived, get out"
 
@@ -259,9 +339,9 @@ label dlc:
 
     anubis "And what pray tell was it?"
 
-    m "That vendor food vendor over there looks really good!"
+    m "That food vendor over there looks really good!"
 
-    anubis "So, you just wanted to eat a food cart?"
+    anubis "So, you just wanted to eat at a food cart?"
 
     m "I mean it’s not everyday I get to eat in the world between worlds"
 
