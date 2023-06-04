@@ -19,6 +19,7 @@ label start:
 
     scene city
     with fade
+    play music "Engine.mp3"
 
     "As you stir from your slumber you notice that you’re in the back of a truck with a group of misfits, scoundrels, and other vagabonds."
 
@@ -45,6 +46,11 @@ label start:
     "As you marvel at the tomb the men you came along with brush by you, completely uninterested in the temple"
 
     "Enough gawking, get to it!"
+
+    scene tomb
+    with dissolve
+
+    play music "ominous.mp3"
 
     "You’re shaken by a rather burly swarthy man and that sets you back on the task at hand"
 
@@ -87,7 +93,7 @@ label take:
 
 "???: Come on, we don't have all day"
 
-scene river
+scene boat
 with dissolve
 
 "As you stir and your eyes open you see this hulking shadow towering over you"
@@ -230,6 +236,8 @@ anubis "We have arrived, get out"
 scene pyramid
 with dissolve
 
+play music "main.mp3"
+
 show anubis_un
 
 "You enter the town, there aren’t many buildings and all the buildings short of the megastructure at the town's center are fairly quaint. The town also seems to be sparsely populated."
@@ -259,9 +267,9 @@ label dlc:
 
     anubis "And what pray tell was it?"
 
-    m "That vendor food vendor over there looks really good!"
+    m "That food vendor over there looks really good!"
 
-    anubis "So, you just wanted to eat a food cart?"
+    anubis "So, you just wanted to eat at a food cart?"
 
     m "I mean it’s not everyday I get to eat in the world between worlds"
 
@@ -341,6 +349,8 @@ label dlc:
             
             "No I don’t, but I want to know":
 
+                play music "cityambience.mp3"
+
                 $ score += 1
 
                 hide anubis_an
@@ -392,7 +402,7 @@ label dlc:
 
                         jump body3
 
-                    "Romance Catalog":
+                    "Romance Novel ":
 
                         $ score += 1
 
@@ -516,7 +526,7 @@ label ending:
             hide anubis_default
             show anubis_un
 
-            anubis "Well, I’ll grant that you were at least mildly interesting. I wouldn’t mind going again to a food stall sometime…"
+            anubis "Well, I’ll grant that you were at least mildly interesting. I wouldn’t mind going to a food stall sometime…"
 
             "The two of you go on a second date together and live happily ever after…"
 
