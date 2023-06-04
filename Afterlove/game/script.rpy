@@ -87,7 +87,7 @@ label take:
 
 "???: Come on, we don't have all day"
 
-scene river
+scene boat
 with dissolve
 
 "As you stir and your eyes open you see this hulking shadow towering over you"
@@ -157,6 +157,12 @@ label main:
 
 "You get in the boat first and he gets in after you and begins to row"
 
+
+#   show anubis_un
+scene row
+with fade
+show anubis_un
+
 "As Anubis rows you both across the river you notice that the river is calm and that the only disturbance being the boat"
 
 "Which each stroke Anubis digs up some water and it the ocassional splash does get him making him glisten"
@@ -187,8 +193,35 @@ label muscle:
 
     menu:
 
+        "Come on, it wasn't that bad!":
 
-    jump de
+            jump itWasBad
+
+
+        "Sorry, that was not the best": 
+
+            jump yep
+
+
+    #jump de
+
+    label itWasBad:
+
+        anubis "No, it was, don't even try to justify it"
+
+        "After his response he continues to row you both down the river"
+
+        jump de
+
+
+    label yep:
+
+        anubis "I'm glad you recognize that"
+
+        "After his response he continues to row you both down the river"
+
+        jump de
+
     
 label afterlife: 
 
@@ -500,6 +533,9 @@ label dlc:
 
 label body3:
 
+        scene tomb
+        with dissolve
+
         "As you both walk towards the temple you notice the grandeur of it. It’s entry way flanked by massive titans and it’s walls engraved with glyphs that proudly stand boldly outward showing the rest of the duat of the excellence and significance of this place."
         
         "As you enter the magnificence continues with glyphs covering the walls and scenes from myth being depicted as well in stunning detail and vibrant color."
@@ -571,6 +607,8 @@ label body3:
 
 
 label ending: 
+
+        
 
         if score > 0:
 
