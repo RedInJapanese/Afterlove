@@ -8,5 +8,5 @@ Made for ARTG120 Final Project.
 - Akash Basu
 - Kyler Mekmorakoth
 - George Gomez
-- Luka Kawashima
+- Luka Kawashima (https://www.artstation.com/lukajk)
 - Pocketninja
